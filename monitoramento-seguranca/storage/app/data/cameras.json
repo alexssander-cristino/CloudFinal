@@ -1,82 +1,82 @@
 [
-    {
-        "id":1,
-        "nome":"Entrada Principal",
-        "local":"Recepção",
-        "status":"Ativa",
-        "gravacao":true,
-        "ultimaVerificacao":"2026-06-28 08:30"
-    },
-    {
-        "id":2,
-        "nome":"Estacionamento",
-        "local":"Frente",
-        "status":"Ativa",
-        "gravacao":true,
-        "ultimaVerificacao":"2026-06-28 08:35"
-    },
-    {
-        "id":3,
-        "nome":"Corredor A",
-        "local":"Bloco A",
-        "status":"Ativa",
-        "gravacao":true,
-        "ultimaVerificacao":"2026-06-28 08:40"
-    },
-    {
-        "id":4,
-        "nome":"Corredor B",
-        "local":"Bloco B",
-        "status":"Ativa",
-        "gravacao":true,
-        "ultimaVerificacao":"2026-06-28 08:42"
-    },
-    {
-        "id":5,
-        "nome":"Sala de Servidores",
-        "local":"TI",
-        "status":"Ativa",
-        "gravacao":true,
-        "ultimaVerificacao":"2026-06-28 08:45"
-    },
-    {
-        "id":6,
-        "nome":"Almoxarifado",
-        "local":"Fundos",
-        "status":"Inativa",
-        "gravacao":false,
-        "ultimaVerificacao":"2026-06-27 17:00"
-    },
-    {
-        "id":7,
-        "nome":"Portão Lateral",
-        "local":"Lateral",
-        "status":"Ativa",
-        "gravacao":true,
-        "ultimaVerificacao":"2026-06-28 08:50"
-    },
-    {
-        "id":8,
-        "nome":"Área Externa",
-        "local":"Pátio",
-        "status":"Ativa",
-        "gravacao":true,
-        "ultimaVerificacao":"2026-06-28 08:55"
-    },
-    {
-        "id":9,
-        "nome":"Depósito",
-        "local":"Bloco C",
-        "status":"Ativa",
-        "gravacao":true,
-        "ultimaVerificacao":"2026-06-28 09:00"
-    },
-    {
-        "id":10,
-        "nome":"Recepção",
-        "local":"Entrada",
-        "status":"Ativa",
-        "gravacao":true,
-        "ultimaVerificacao":"2026-06-28 09:05"
-    }
+  {
+    "id": 1,
+    "nome": "Entrada Principal",
+    "local": "Portaria",
+    "status": "online",
+    "gravacao": true,
+    "ultimaVerificacao": "2026-07-07 08:10:00"
+  },
+  {
+    "id": 2,
+    "nome": "Recepção",
+    "local": "Recepção",
+    "status": "online",
+    "gravacao": true,
+    "ultimaVerificacao": "2026-07-07 08:12:00"
+  },
+  {
+    "id": 3,
+    "nome": "Corredor A",
+    "local": "Bloco A",
+    "status": "offline",
+    "gravacao": false,
+    "ultimaVerificacao": "2026-07-07 07:55:00"
+  },
+  {
+    "id": 4,
+    "nome": "Corredor B",
+    "local": "Bloco B",
+    "status": "online",
+    "gravacao": true,
+    "ultimaVerificacao": "2026-07-07 08:05:00"
+  },
+  {
+    "id": 5,
+    "nome": "Estacionamento",
+    "local": "Área Externa",
+    "status": "online",
+    "gravacao": true,
+    "ultimaVerificacao": "2026-07-07 08:15:00"
+  },
+  {
+    "id": 6,
+    "nome": "Almoxarifado",
+    "local": "Depósito",
+    "status": "manutencao",
+    "gravacao": false,
+    "ultimaVerificacao": "2026-07-06 18:40:00"
+  },
+  {
+    "id": 7,
+    "nome": "Laboratório",
+    "local": "Bloco C",
+    "status": "online",
+    "gravacao": true,
+    "ultimaVerificacao": "2026-07-07 08:11:00"
+  },
+  {
+    "id": 8,
+    "nome": "Auditório",
+    "local": "Bloco Principal",
+    "status": "online",
+    "gravacao": true,
+    "ultimaVerificacao": "2026-07-07 08:14:00"
+  },
+  {
+    "id": 9,
+    "nome": "Saída de Emergência",
+    "local": "Fundos",
+    "status": "offline",
+    "gravacao": false,
+    "ultimaVerificacao": "2026-07-07 07:48:00"
+  },
+  {
+    "id": 10,
+    "nome": "Pátio",
+    "local": "Área Externa",
+    "status": "online",
+    "gravacao": true,
+    "ultimaVerificacao": "2026-07-07 08:16:00"
+  }
 ]
