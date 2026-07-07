@@ -2,110 +2,109 @@
 
 Projeto desenvolvido como trabalho final da disciplina de **Cloud Computing**, utilizando o framework **Laravel (PHP)**.
 
-O sistema simula uma plataforma de **monitoramento de segurança**, permitindo o gerenciamento de câmeras, sensores, fabricantes e locais, aplicando conceitos de arquitetura web, APIs REST, organização em camadas e testes automatizados.
+O sistema consiste em uma plataforma de **Monitoramento de Segurança**, permitindo o gerenciamento de câmeras, sensores, fabricantes e locais monitorados através de uma API REST e de um dashboard web.
+
+O projeto foi desenvolvido aplicando conceitos de arquitetura MVC, organização em camadas, APIs REST, testes automatizados e integração contínua.
 
 ---
 
 # Objetivo
 
-Demonstrar a aplicação prática dos conceitos de Cloud Computing através do desenvolvimento de uma aplicação web estruturada, utilizando:
+Desenvolver uma aplicação web utilizando Laravel para demonstrar a aplicação prática dos conceitos estudados na disciplina de Cloud Computing.
 
-* Arquitetura MVC do Laravel
-* Comunicação através de rotas HTTP e API REST
-* Organização em camadas (Controller, Service e Repository)
-* Persistência e manipulação de dados
-* Dashboard de monitoramento
-* Testes automatizados com PHPUnit
+Entre os principais conceitos aplicados estão:
+
+- Arquitetura MVC
+- Organização em camadas (Controller, Service e Repository)
+- API REST
+- Dashboard Web
+- Persistência de dados utilizando arquivos JSON
+- Testes automatizados com PHPUnit
+- Integração Contínua utilizando GitHub Actions
 
 ---
 
 # Funcionalidades
 
-## Monitoramento de Câmeras
-
-* Listagem de câmeras cadastradas
-* Consulta individual de câmeras
-* Cadastro de novos dispositivos
-* Atualização de informações
-* Remoção de câmeras
-* Controle de status:
-
-  * Online
-  * Offline
-  * Manutenção
-
 ## Dashboard
 
-O sistema possui uma interface de acompanhamento contendo:
+O sistema possui um dashboard inicial contendo informações gerais do ambiente monitorado.
 
-* Quantidade de câmeras cadastradas
-* Quantidade de sensores
-* Fabricantes registrados
-* Locais cadastrados
+São exibidos:
 
-## API REST
-
-Endpoints disponíveis:
-
-```text
-GET     /api/cameras
-POST    /api/cameras
-GET     /api/cameras/{id}
-PUT     /api/cameras/{id}
-DELETE  /api/cameras/{id}
-
-GET     /api/status
-```
+- Quantidade de câmeras cadastradas
+- Quantidade de sensores
+- Quantidade de fabricantes
+- Quantidade de locais monitorados
 
 ---
 
-# Arquitetura
+## Gerenciamento de Câmeras
 
-O projeto utiliza a arquitetura MVC do Laravel juntamente com uma separação de responsabilidades através das camadas de serviço e repositório.
+A API permite:
 
-Fluxo da aplicação:
+- Listar todas as câmeras
+- Consultar uma câmera específica
+- Cadastrar novas câmeras
+- Atualizar informações
+- Remover câmeras
 
-```text
-Request
-   |
-   v
-Route
-   |
-   v
-Controller
-   |
-   v
-Service
-   |
-   v
-Repository
-   |
-   v
-Dados
+Cada câmera possui:
+
+- ID
+- Nome
+- Local
+- Status
+- Situação da gravação
+- Última verificação
+
+Status disponíveis:
+
+- Online
+- Offline
+- Manutenção
+
+---
+
+## API REST
+
+A aplicação disponibiliza os seguintes endpoints:
+
+| Método | Endpoint |
+|---------|----------|
+| GET | /api/status |
+| GET | /api/cameras |
+| GET | /api/cameras/{id} |
+| POST | /api/cameras |
+| PUT | /api/cameras/{id} |
+| DELETE | /api/cameras/{id} |
+
+Todos os dados são retornados no formato JSON.
+
+---
+
+# Estrutura do Projeto
+
 ```
-
-Estrutura do projeto:
-
-```text
 app/
 ├── Http/
 │   ├── Controllers/
 │   ├── Requests/
 │   └── Resources/
 │
-├── Services/
-│
 ├── Repositories/
 │
+├── Services/
+│
 ├── Models/
-
+│
 routes/
-├── web.php
 ├── api.php
-
+├── web.php
+│
 resources/
-├── views/
-
+└── views/
+│
 storage/
 └── app/
     └── data/
@@ -113,7 +112,7 @@ storage/
         ├── sensores.json
         ├── fabricantes.json
         └── locais.json
-
+│
 tests/
 ├── Feature/
 └── Unit/
@@ -121,16 +120,84 @@ tests/
 
 ---
 
+# Arquitetura
+
+O projeto foi desenvolvido utilizando a arquitetura MVC juntamente com uma separação em camadas para facilitar manutenção e evolução.
+
+Fluxo da aplicação:
+
+```
+Requisição HTTP
+      │
+      ▼
+    Route
+      │
+      ▼
+ Controller
+      │
+      ▼
+   Service
+      │
+      ▼
+ Repository
+      │
+      ▼
+ Arquivos JSON
+```
+
+Cada camada possui uma responsabilidade específica:
+
+- Routes: definição das rotas da aplicação
+- Controllers: recebem as requisições HTTP
+- Services: concentram as regras de negócio
+- Repositories: acesso aos dados
+- Resources: padronização das respostas JSON
+- Requests: validação dos dados enviados pelo cliente
+
+---
+
+# Armazenamento dos Dados
+
+Os dados utilizados pelo sistema são armazenados em arquivos JSON localizados em:
+
+```
+storage/app/data/
+```
+
+Arquivos utilizados:
+
+- cameras.json
+- sensores.json
+- fabricantes.json
+- locais.json
+
+Esses arquivos simulam uma base de dados contendo registros utilizados pela API e pelo dashboard.
+
+---
+
 # Tecnologias Utilizadas
 
-* PHP 8+
-* Laravel Framework
-* Composer
-* PHPUnit
-* Artisan CLI
-* JSON Storage
-* Blade Templates
-* HTML, CSS e JavaScript
+- PHP 8+
+- Laravel 12
+- Composer
+- PHPUnit
+- Blade
+- JSON
+- HTML
+- CSS
+- JavaScript
+- Git
+- GitHub Actions
+
+---
+
+# Requisitos
+
+Para executar o projeto é necessário possuir instalado:
+
+- PHP 8.2 ou superior
+- Composer
+- Git
 
 ---
 
@@ -146,7 +213,7 @@ cd monitoramento-seguranca
 
 ---
 
-## 2. Instalar dependências
+## 2. Instalar as dependências
 
 ```bash
 composer install
@@ -154,15 +221,15 @@ composer install
 
 ---
 
-## 3. Configurar ambiente
+## 3. Configurar o ambiente
 
-Copie o arquivo de configuração:
+Copiar o arquivo de configuração:
 
 ```bash
 cp .env.example .env
 ```
 
-Gere a chave da aplicação:
+Gerar a chave da aplicação:
 
 ```bash
 php artisan key:generate
@@ -172,16 +239,50 @@ php artisan key:generate
 
 ## 4. Executar a aplicação
 
-Inicie o servidor Laravel:
-
 ```bash
 php artisan serve
 ```
 
-A aplicação estará disponível em:
+A aplicação ficará disponível em:
 
-```text
+```
 http://127.0.0.1:8000
+```
+
+Dashboard:
+
+```
+http://127.0.0.1:8000/
+```
+
+API:
+
+```
+http://127.0.0.1:8000/api/status
+
+http://127.0.0.1:8000/api/cameras
+```
+
+---
+
+# Exemplo de Cadastro
+
+Cadastrar uma nova câmera:
+
+```
+POST /api/cameras
+```
+
+Exemplo de JSON:
+
+```json
+{
+    "nome": "Entrada Principal",
+    "local": "Portaria",
+    "status": "online",
+    "gravacao": true,
+    "ultimaVerificacao": "2026-07-07 09:00:00"
+}
 ```
 
 ---
@@ -194,51 +295,108 @@ Executar todos os testes:
 php artisan test
 ```
 
-Os testes validam:
+Os testes verificam:
 
-* Funcionamento das rotas
-* Retorno correto da API
-* Estrutura dos dados
-* Tratamento de registros inexistentes
-* Status da aplicação
+- Funcionamento das rotas
+- Estrutura das respostas JSON
+- Código HTTP das respostas
+- Tratamento de erros
+- Disponibilidade da API
+
+---
+
+# Integração Contínua
+
+O projeto utiliza **GitHub Actions** para automatizar a execução dos testes.
+
+O pipeline realiza automaticamente:
+
+1. Checkout do código
+2. Configuração do ambiente PHP
+3. Instalação das dependências
+4. Preparação do ambiente Laravel
+5. Geração da chave da aplicação
+6. Execução dos testes automatizados
+7. Validação do arquivo composer.json
+
+Essa automação permite identificar problemas rapidamente após alterações no código.
 
 ---
 
 # Comandos Úteis
 
-Listar rotas disponíveis:
+Listar todas as rotas:
 
 ```bash
 php artisan route:list
 ```
 
-Limpar cache da aplicação:
+Executar o servidor:
+
+```bash
+php artisan serve
+```
+
+Executar os testes:
+
+```bash
+php artisan test
+```
+
+Limpar cache:
 
 ```bash
 php artisan optimize:clear
 ```
 
-Executar servidor local:
+Gerar chave da aplicação:
 
 ```bash
-php artisan serve
+php artisan key:generate
 ```
 
 ---
 
 # Conceitos de Cloud Computing Aplicados
 
-O projeto demonstra conceitos utilizados em aplicações hospedadas em ambientes cloud:
+Durante o desenvolvimento foram utilizados conceitos relacionados à Computação em Nuvem, tais como:
 
-* Estrutura organizada e escalável
-* Separação de responsabilidades
-* Comunicação através de APIs REST
-* Arquitetura preparada para implantação em nuvem
-* Testes automatizados para garantir confiabilidade
-* Organização seguindo padrões utilizados no desenvolvimento profissional
+- Arquitetura em camadas
+- APIs REST
+- Organização modular
+- Integração Contínua (CI)
+- Controle de versão utilizando Git
+- Automação de testes
+- Estrutura preparada para implantação em ambiente cloud
+
+---
+
+# Melhorias Futuras
+
+Como evolução do projeto poderão ser implementadas:
+
+- Autenticação utilizando Laravel Sanctum
+- Dashboard em tempo real
+- WebSockets
+- Integração com câmeras IP
+- Controle de usuários
+- Upload de imagens
+- Geração de relatórios
+- Notificações em tempo real
+- Documentação utilizando Swagger
 
 ---
 
 # Autor
 
-Alexssander Cristino
+Alexssander Cassio Comper Cristino
+
+Curso de Sistemas de Informação
+
+Trabalho Final da disciplina de Cloud Computing.
+
+---
+
+# Licença
+
+Projeto desenvolvido exclusivamente para fins acadêmicos.
