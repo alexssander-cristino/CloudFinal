@@ -11,7 +11,7 @@ class CameraController extends Controller
 {
     public function __construct(
         protected CameraService $service
-    ){}
+    ) {}
 
     public function index()
     {
@@ -22,9 +22,15 @@ class CameraController extends Controller
 
     public function show($id)
     {
-        return new CameraResource(
-            $this->service->buscar($id)
-        );
+        $camera = $this->service->buscar($id);
+
+        if (!$camera) {
+            return response()->json([
+                'message' => 'Câmera não encontrada.'
+            ], 404);
+        }
+
+        return new CameraResource($camera);
     }
 
     public function store(StoreCameraRequest $request)
@@ -33,25 +39,40 @@ class CameraController extends Controller
             $request->validated()
         );
 
-        return new CameraResource($camera);
+        return response()->json(
+            new CameraResource($camera),
+            201
+        );
     }
 
-    public function update(UpdateCameraRequest $request,$id)
+    public function update(UpdateCameraRequest $request, $id)
     {
         $camera = $this->service->atualizar(
             $id,
             $request->validated()
         );
 
+        if (!$camera) {
+            return response()->json([
+                'message' => 'Câmera não encontrada.'
+            ], 404);
+        }
+
         return new CameraResource($camera);
     }
 
     public function destroy($id)
     {
-        $this->service->excluir($id);
+        $resultado = $this->service->excluir($id);
+
+        if (!$resultado) {
+            return response()->json([
+                'message' => 'Câmera não encontrada.'
+            ], 404);
+        }
 
         return response()->json([
-            'message'=>'Câmera removida com sucesso.'
+            'message' => 'Câmera removida com sucesso.'
         ]);
     }
 }

@@ -2,10 +2,15 @@
 
 namespace Tests\Feature;
 
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
 class CameraTest extends TestCase
 {
+    use RefreshDatabase;
+
+    protected $seed = true;
+
     /** @test */
     public function lista_de_cameras_retorna_200()
     {
@@ -21,15 +26,17 @@ class CameraTest extends TestCase
 
         $response->assertStatus(200)
                  ->assertJsonStructure([
-                     '*' => [
-                         'id',
-                         'nome',
-                         'local',
-                         'status',
-                         'gravacao',
-                         'ultimaVerificacao'
-                     ]
-                 ]);
+    'data' => [
+        '*' => [
+            'id',
+            'nome',
+            'local',
+            'status',
+            'gravacao',
+            'ultimaVerificacao'
+        ]
+    ]
+]);
     }
 
     /** @test */
