@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "nome": "Sensor Entrada",
+    "tipo": "movimento",
+    "local": "Portaria",
+    "status": "online",
+    "ultimaLeitura": "2026-06-30 09:14:00"
+  },
+  {
+    "id": 2,
+    "nome": "Sensor Recepção",
+    "tipo": "presenca",
+    "local": "Recepção",
+    "status": "online",
+    "ultimaLeitura": "2026-06-30 09:10:00"
+  },
+  {
+    "id": 3,
+    "nome": "Sensor Corredor",
+    "tipo": "movimento",
+    "local": "Bloco A",
+    "status": "offline",
+    "ultimaLeitura": "2026-06-30 08:45:00"
+  },
+  {
+    "id": 4,
+    "nome": "Sensor Depósito",
+    "tipo": "fumaca",
+    "local": "Depósito",
+    "status": "online",
+    "ultimaLeitura": "2026-06-30 09:05:00"
+  },
+  {
+    "id": 5,
+    "nome": "Sensor Estacionamento",
+    "tipo": "movimento",
+    "local": "Área Externa",
+    "status": "online",
+    "ultimaLeitura": "2026-06-30 09:11:00"
+  }
+]

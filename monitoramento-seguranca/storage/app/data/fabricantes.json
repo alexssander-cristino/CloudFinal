@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "nome": "Intelbras",
+    "site": "https://www.intelbras.com.br",
+    "suporte": "0800-704-2767"
+  },
+  {
+    "id": 2,
+    "nome": "Hikvision",
+    "site": "https://www.hikvision.com",
+    "suporte": "+86-571-88075998"
+  },
+  {
+    "id": 3,
+    "nome": "Dahua",
+    "site": "https://www.dahuasecurity.com",
+    "suporte": "+86-571-87688883"
+  }
+]
